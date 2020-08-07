@@ -1,0 +1,10 @@
+sudo: required
+language: generic 
+services:
+    - docker
+
+before_install:
+    - docker build -t arijitnath92/dockerReact -f Dockerfile.dev .
+    
+script:
+    - docker run -e CI=true arijitnath92/dockerReact npm run test
